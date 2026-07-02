@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>HSK 2 Bab 2 - Flashcard + Kuis (Review Salah)</title>
+    <title>HSK 2 Bab 02 – 还是打车去北大吧 | Flashcard & Kuis</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #0c4a6e 0%, #1e40af 50%, #3b82f6 100%);
             font-family: 'Arial', 'Segoe UI', sans-serif;
             min-height: 100vh;
             padding: 20px;
         }
 
         .app-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            background: #ffffffdd;
-            backdrop-filter: blur(2px);
+            background: rgba(255, 250, 240, 0.97);
             border-radius: 48px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
             overflow: hidden;
             padding: 20px 25px 35px;
-            transition: all 0.3s;
+            backdrop-filter: blur(2px);
         }
 
         .title-section {
@@ -35,8 +35,8 @@
             margin-bottom: 20px;
         }
         h1 {
-            font-size: 2.4rem;
-            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            font-size: 2.2rem;
+            background: linear-gradient(120deg, #0c4a6e, #3b82f6);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -44,11 +44,11 @@
         }
         .watermark {
             font-size: 0.9rem;
-            color: #d97706;
+            color: #1e40af;
             font-weight: bold;
-            background: #fef3c7;
+            background: #dbeafe;
             display: inline-block;
-            padding: 4px 16px;
+            padding: 4px 18px;
             border-radius: 40px;
             margin-top: 8px;
             font-family: 'Arial', sans-serif;
@@ -58,27 +58,27 @@
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #ffd966;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #93c5fd;
             padding-bottom: 8px;
         }
         .tab-btn {
-            background: #ffe8cc;
+            background: #dbeafe;
             border: none;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            padding: 12px 32px;
+            padding: 10px 30px;
             border-radius: 60px;
             cursor: pointer;
             transition: 0.2s;
-            color: #5e3a1c;
+            color: #0c4a6e;
             font-family: 'Arial', sans-serif;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         .tab-btn.active {
-            background: #f59e0b;
+            background: #2563eb;
             color: white;
-            box-shadow: 0 6px 12px rgba(245,158,11,0.3);
+            box-shadow: 0 6px 12px rgba(37,99,235,0.3);
         }
         .tab-content {
             display: none;
@@ -92,7 +92,6 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* FLASHCARD STYLE */
         .flashcard-area {
             display: flex;
             flex-direction: column;
@@ -102,686 +101,536 @@
             background: #fffaf0;
             border-radius: 60px;
             box-shadow: 0 20px 30px rgba(0,0,0,0.2), inset 0 1px 2px white;
-            padding: 40px 20px;
+            padding: 40px 25px;
             text-align: center;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto;
             cursor: pointer;
             transition: 0.2s;
-            border: 3px solid #fcd34d;
-            position: relative;
+            border: 3px solid #93c5fd;
         }
-        .card:hover {
-            transform: scale(1.02);
-            background: #fff5e6;
-        }
+        .card:hover { transform: scale(1.02); background: #eff6ff; }
         .card-hanzi {
             font-family: 'Simsun', '宋体', 'Times New Roman', serif;
             font-size: 5rem;
             font-weight: 800;
-            color: #b45309;
-            letter-spacing: 6px;
+            color: #0c4a6e;
+            letter-spacing: 4px;
             margin-bottom: 20px;
             word-break: break-word;
         }
         .card-pinyin {
             font-family: 'Times New Roman', Times, serif;
             font-size: 1.9rem;
-            color: #2c5282;
-            margin: 10px 0;
+            color: #1e40af;
+            margin: 12px 0;
             font-weight: 500;
         }
         .card-arti {
             font-family: 'Arial', sans-serif;
             font-size: 1.5rem;
-            background: #eef2ff;
+            background: #dbeafe;
             display: inline-block;
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 50px;
-            color: #1e293b;
+            color: #0c4a6e;
         }
-        .info {
+        .info-text {
             font-family: 'Arial', sans-serif;
-            font-size: 1rem;
-            margin-top: 15px;
+            font-size: 0.9rem;
+            margin-top: 12px;
             color: #5b6e8c;
         }
         .nav-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin: 15px 0;
             flex-wrap: wrap;
+            margin: 15px 0;
         }
         button {
-            background: #ffb347;
+            background: #3b82f6;
             border: none;
-            padding: 10px 24px;
-            font-size: 1.2rem;
+            padding: 10px 22px;
+            font-size: 1.1rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Arial', sans-serif;
             transition: 0.1s;
             color: white;
-            box-shadow: 0 4px 0 #c47d2e;
+            box-shadow: 0 4px 0 #1d4ed8;
         }
         button:active {
             transform: translateY(2px);
-            box-shadow: 0 1px 0 #c47d2e;
+            box-shadow: 0 1px 0 #1d4ed8;
         }
-        .shuffle-btn {
-            background: #3b82f6;
-            box-shadow: 0 4px 0 #1e40af;
-        }
-        .checklist-btn {
-            background: #10b981;
-            box-shadow: 0 4px 0 #047857;
-        }
-        .counter {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.1rem;
-            background: #e2e8f0;
-            padding: 5px 15px;
-            border-radius: 30px;
-            display: inline-block;
-        }
+        .shuffle-btn { background: #3b82f6; box-shadow: 0 4px 0 #1e40af; }
+        .checklist-btn { background: #10b981; box-shadow: 0 4px 0 #047857; }
         .review-badge {
             margin-top: 12px;
             display: flex;
-            gap: 12px;
+            gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
         }
         .mark-info {
-            background: #fde68a;
-            padding: 6px 14px;
+            background: #93c5fd;
+            padding: 6px 18px;
             border-radius: 40px;
             font-family: 'Arial', sans-serif;
             font-weight: bold;
+            font-size: 0.9rem;
+            color: #0c4a6e;
+        }
+        .counter {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            background: #e2e8f0;
+            padding: 5px 18px;
+            border-radius: 30px;
+            display: inline-block;
         }
 
-        /* KUIS STYLE */
-        .quiz-area {
-            text-align: center;
-        }
-        .quiz-question {
-            background: #fffbeb;
-            border-radius: 70px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        }
-        .quiz-arti {
-            font-family: 'Arial', sans-serif;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #7b341e;
-            background: #fed7aa;
-            display: inline-block;
-            padding: 10px 30px;
+        .quiz-area { text-align: center; }
+        .timer-bar {
+            background: #eff6ff;
+            padding: 10px 20px;
             border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            margin: 30px 0;
-        }
+        .timer-label { font-weight: bold; background: #93c5fd; padding: 5px 15px; border-radius: 40px; color: #0c4a6e; }
+        .progress-container { flex: 2; background-color: #e2e8f0; border-radius: 30px; height: 18px; overflow: hidden; }
+        .time-progress { width: 100%; height: 100%; background: linear-gradient(90deg, #3b82f6, #2563eb); border-radius: 30px; transition: width 0.1s linear; }
+        .time-warning { background: linear-gradient(90deg, #ef4444, #f97316); }
+        .timer-digit { font-family: monospace; font-size: 1.6rem; font-weight: 800; background: #0f172a; color: #fef9c3; padding: 4px 18px; border-radius: 50px; min-width: 100px; }
+        .quiz-question { background: #eff6ff; border-radius: 70px; padding: 25px; margin: 15px 0; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .quiz-arti { font-family: 'Arial', sans-serif; font-size: 2rem; font-weight: bold; color: #0c4a6e; background: #93c5fd; display: inline-block; padding: 10px 30px; border-radius: 60px; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin: 25px 0; }
         .quiz-option {
             font-family: 'Simsun', '宋体', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            background: linear-gradient(145deg, #fef9e3, #fff2df);
-            border: 3px solid #fbbf24;
+            background: linear-gradient(145deg, #eff6ff, #dbeafe);
+            border: 3px solid #93c5fd;
             border-radius: 70px;
-            padding: 16px 8px;
+            padding: 14px 8px;
             cursor: pointer;
             transition: 0.1s;
             text-align: center;
-            color: #3b2b1f;
-            box-shadow: 0 5px 0 #eab308;
+            color: #0c4a6e;
+            box-shadow: 0 5px 0 #2563eb;
         }
-        .quiz-option:hover:not(:disabled) {
-            transform: translateY(-2px);
-            background: #fff0cc;
-        }
-        .quiz-option:active:not(:disabled) {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #eab308;
-        }
-        .disabled-opt {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        .feedback {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.3rem;
-            padding: 12px;
-            border-radius: 50px;
-            margin: 15px 0;
-            background: #f1f5f9;
-            font-weight: bold;
-        }
-        .score-area {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2rem;
-            background: #facc15;
-            display: inline-block;
-            padding: 6px 20px;
-            border-radius: 40px;
-            margin-bottom: 15px;
-        }
-        .quiz-next {
-            background: #10b981;
-            box-shadow: 0 4px 0 #047857;
-            margin-top: 10px;
-        }
-        .reset-quiz {
-            background: #ef4444;
-            box-shadow: 0 4px 0 #b91c1c;
-            margin-left: 15px;
-        }
-        .repeat-wrong {
-            background: #8b5cf6;
-            box-shadow: 0 4px 0 #5b21b6;
-            margin-left: 15px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #5b6e8c;
-        }
+        .quiz-option:hover:not(:disabled) { transform: translateY(-2px); background: #93c5fd; }
+        .quiz-option:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 #2563eb; }
+        .disabled-opt { opacity: 0.6; cursor: not-allowed; }
+        .feedback { font-family: 'Arial', sans-serif; font-size: 1.2rem; padding: 12px; border-radius: 50px; margin: 15px 0; background: #f1f5f9; font-weight: bold; }
+        .score-area { font-family: 'Arial', sans-serif; font-size: 1.2rem; background: #93c5fd; display: inline-block; padding: 6px 22px; border-radius: 40px; margin-bottom: 12px; color: #0c4a6e; }
+        .quiz-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .next-quiz { background: #10b981; box-shadow: 0 4px 0 #047857; }
+        .reset-quiz { background: #ef4444; box-shadow: 0 4px 0 #b91c1c; }
+        .repeat-wrong { background: #8b5cf6; box-shadow: 0 4px 0 #5b21b6; }
+        footer { text-align: center; margin-top: 30px; font-size: 0.75rem; color: #5b6e8c; }
+
         @media (max-width: 640px) {
             .card-hanzi { font-size: 3rem; }
             .quiz-arti { font-size: 1.4rem; }
-            .quiz-option { font-size: 1.2rem; }
-            .tab-btn { font-size: 1rem; padding: 8px 20px; }
+            .quiz-option { font-size: 1.1rem; padding: 10px 5px; }
+            .tab-btn { font-size: 1rem; padding: 6px 18px; }
         }
     </style>
 </head>
 <body>
 <div class="app-container">
     <div class="title-section">
-        <h1>📚 HSK 2 Bab 2 – 还是打车去北大吧</h1>
-        <div class="watermark">lcn palembang-08994477998</div>
+        <h1>🚖 HSK 2 Bab 02 – 还是打车去北大吧</h1>
+        <div class="watermark">Berdasarkan TB & WB Lesson 02 | Flashcard + Kuis</div>
     </div>
 
     <div class="tabs">
         <button class="tab-btn active" data-tab="flashcard">✨ FLASHCARD ✨</button>
-        <button class="tab-btn" data-tab="quiz">🎯 KUIS PILIH HANZI 🎯</button>
+        <button class="tab-btn" data-tab="quiz">🎯 KUIS HANZI 🎯</button>
     </div>
 
-    <!-- FLASHCARD TAB -->
+    <!-- FLASHCARD -->
     <div id="flashcardTab" class="tab-content active">
         <div class="flashcard-area">
             <div class="card" id="flashcardCard">
                 <div class="card-hanzi" id="cardHanzi">...</div>
-                <div class="card-pinyin" id="cardPinyin" style="display: none;">-</div>
-                <div class="card-arti" id="cardArti" style="display: none;">-</div>
-                <div class="info">✨ Klik kartu untuk tampilkan Pinyin & Arti ✨</div>
+                <div class="card-pinyin" id="cardPinyin" style="display: none;"></div>
+                <div class="card-arti" id="cardArti" style="display: none;"></div>
+                <div class="info-text">✨ Klik kartu untuk lihat Pinyin & Arti ✨</div>
             </div>
             <div class="nav-buttons">
                 <button id="prevCardBtn">◀ Sebelumnya</button>
                 <button id="nextCardBtn">Selanjutnya ▶</button>
                 <button id="shuffleFlashBtn" class="shuffle-btn">🔄 Acak Kartu</button>
-                <button id="markReviewBtn" class="checklist-btn">✅ Tandai untuk Diulang</button>
-                <button id="showMarkedBtn" class="checklist-btn">⭐ Tampilkan Tertandai</button>
+                <button id="markReviewBtn" class="checklist-btn">✅ Tandai Ulang</button>
+                <button id="showMarkedBtn" class="checklist-btn">⭐ Tertandai</button>
                 <button id="showAllFlashBtn" class="shuffle-btn">📋 Semua Kartu</button>
             </div>
             <div class="review-badge">
                 <span class="mark-info" id="markedCountBadge">📌 Tertandai: 0</span>
-                <span class="counter" id="flashCounter">Kartu 1 / 79</span>
+                <span class="counter" id="flashCounter">Kartu 1 / 60</span>
             </div>
         </div>
     </div>
 
-    <!-- KUIS TAB -->
+    <!-- KUIS -->
     <div id="quizTab" class="tab-content">
         <div class="quiz-area">
-            <div class="score-area">🏆 SKOR: <span id="quizScore">0</span> / <span id="totalQuizCount">79</span></div>
+            <div class="score-area">🏆 SKOR: <span id="quizScore">0</span> / <span id="totalQuizCount">60</span></div>
+            <div class="timer-bar">
+                <span class="timer-label">⏱ WAKTU</span>
+                <div class="progress-container">
+                    <div class="time-progress" id="timeProgress" style="width: 100%;"></div>
+                </div>
+                <span class="timer-digit" id="timerDisplay">20 detik</span>
+            </div>
             <div class="quiz-question">
                 <div class="quiz-arti" id="questionArti">Memperkenalkan</div>
             </div>
             <div class="options-grid" id="quizOptionsGrid"></div>
-            <div class="feedback" id="quizFeedback">🌸 Klik salah satu Hanzi yang sesuai dengan arti di atas 🌸</div>
-            <div>
-                <button id="nextQuizBtn" class="quiz-next">▶ Soal Berikutnya</button>
-                <button id="resetQuizBtn" class="reset-quiz">🔄 Mulai Baru (Acak)</button>
+            <div class="feedback" id="quizFeedback">🌸 Pilih Hanzi yang sesuai dengan arti di atas 🌸</div>
+            <div class="quiz-buttons">
+                <button id="nextQuizBtn" class="next-quiz">▶ Soal Berikutnya</button>
+                <button id="resetQuizBtn" class="reset-quiz">🔄 Mulai Baru</button>
                 <button id="repeatWrongBtn" class="repeat-wrong">🔁 Ulangi Soal Salah</button>
             </div>
         </div>
     </div>
-    <footer>⭐ Flashcard: klik centang untuk tandai hafalan ulang | Kuis: soal salah bisa diulang setelah selesai.</footer>
+    <footer>⭐ Flashcard: klik centang untuk tandai hafalan ulang | Kuis: timer 20 detik + suara & ulang soal salah</footer>
 </div>
 
 <script>
-    // ======================= DATA KOSAKATA (79 item) =======================
+    // ======================= KOSAKATA BAB 02 =======================
+    // Diambil dari file KOSAKATA BAB 02.txt
     const vocabulary = [
-        { hanzi: "还是……吧", pinyin: "háishì ... ba", arti: "lebih baik (pilihan yang dianjurkan)" },
-        { hanzi: "打车", pinyin: "dǎchē", arti: "naik taksi" },
+        // Kata Benda
+        { hanzi: "大学", pinyin: "dàxué", arti: "universitas" },
         { hanzi: "北京大学", pinyin: "Běijīng Dàxué", arti: "Universitas Peking" },
         { hanzi: "公交车", pinyin: "gōngjiāochē", arti: "bus" },
         { hanzi: "车站", pinyin: "chēzhàn", arti: "halte / stasiun" },
-        { hanzi: "有点儿", pinyin: "yǒudiǎnr", arti: "agak / sedikit" },
-        { hanzi: "好打车", pinyin: "hǎo dǎchē", arti: "mudah naik taksi" },
-        { hanzi: "人多", pinyin: "rén duō", arti: "banyak orang" },
-        { hanzi: "四万多", pinyin: "sì wàn duō", arti: "lebih dari 40.000" },
-        { hanzi: "三千多", pinyin: "sān qiān duō", arti: "lebih dari 3.000" },
-        { hanzi: "外国学生", pinyin: "wàiguó xuésheng", arti: "siswa asing" },
-        { hanzi: "教室", pinyin: "jiàoshì", arti: "ruang kelas" },
+        { hanzi: "出租车", pinyin: "chūzūchē", arti: "taksi" },
+        { hanzi: "打车", pinyin: "dǎchē", arti: "naik taksi" },
+        { hanzi: "学生", pinyin: "xuéshēng", arti: "murid / mahasiswa" },
+        { hanzi: "外国学生", pinyin: "wàiguó xuéshēng", arti: "mahasiswa asing" },
         { hanzi: "电影院", pinyin: "diànyǐngyuàn", arti: "bioskop" },
         { hanzi: "电影票", pinyin: "diànyǐngpiào", arti: "tiket film" },
-        { hanzi: "便宜", pinyin: "piányi", arti: "murah" },
-        { hanzi: "不到", pinyin: "bú dào", arti: "kurang dari / tidak sampai" },
-        { hanzi: "二十块钱", pinyin: "èrshí kuài qián", arti: "dua puluh yuan" },
-        { hanzi: "天啊", pinyin: "tiān a", arti: "astaga / ya ampun / OMG" },
-        { hanzi: "好看", pinyin: "hǎokàn", arti: "bagus / indah" },
-        { hanzi: "过来", pinyin: "guòlái", arti: "datang ke sini" },
-        { hanzi: "别", pinyin: "bié", arti: "jangan" },
-        { hanzi: "还不到", pinyin: "hái bú dào", arti: "masih kurang dari" },
-        { hanzi: "怎么", pinyin: "zěnme", arti: "bagaimana" },
-        { hanzi: "公司", pinyin: "gōngsī", arti: "perusahaan" },
-        { hanzi: "旅游", pinyin: "lǚyóu", arti: "berwisata" },
-        { hanzi: "上网", pinyin: "shàngwǎng", arti: "daring / online" },
-        { hanzi: "介绍", pinyin: "jièshào", arti: "memperkenalkan" },
+        { hanzi: "教室", pinyin: "jiàoshì", arti: "ruang kelas" },
         { hanzi: "学校", pinyin: "xuéxiào", arti: "sekolah" },
-        { hanzi: "学习", pinyin: "xuéxí", arti: "belajar" },
-        { hanzi: "时间", pinyin: "shíjiān", arti: "waktu" },
-        { hanzi: "问题", pinyin: "wèntí", arti: "masalah / pertanyaan" },
-        { hanzi: "饭店", pinyin: "fàndiàn", arti: "restoran / hotel" },
-        { hanzi: "超市", pinyin: "chāoshì", arti: "supermarket" },
-        { hanzi: "姓名", pinyin: "xìngmíng", arti: "nama lengkap" },
-        { hanzi: "下班", pinyin: "xiàbān", arti: "pulang kerja" },
-        { hanzi: "买菜", pinyin: "mǎi cài", arti: "membeli sayur / belanja dapur" },
-        { hanzi: "今天", pinyin: "jīntiān", arti: "hari ini" },
-        { hanzi: "明天", pinyin: "míngtiān", arti: "besok" },
-        { hanzi: "星期天", pinyin: "Xīngqītiān", arti: "hari Minggu" },
-        { hanzi: "北京", pinyin: "Běijīng", arti: "Beijing" },
-        { hanzi: "上海", pinyin: "Shànghǎi", arti: "Shanghai" },
-        { hanzi: "西安", pinyin: "Xī'ān", arti: "Xi'an" },
-        { hanzi: "汉字", pinyin: "hànzì", arti: "karakter Han" },
-        { hanzi: "偏旁", pinyin: "piānpáng", arti: "radikal (aksara)" },
-        { hanzi: "三点水", pinyin: "sāndiǎnshuǐ", arti: "radikal air “氵”" },
-        { hanzi: "宝盖头", pinyin: "bǎogàitóu", arti: "radikal atap “宀”" },
-        { hanzi: "做完", pinyin: "zuòwán", arti: "selesai mengerjakan" },
-        { hanzi: "洗手", pinyin: "xǐshǒu", arti: "cuci tangan" },
-        { hanzi: "在家", pinyin: "zàijiā", arti: "di rumah" },
-        { hanzi: "休息", pinyin: "xiūxi", arti: "istirahat" },
-        { hanzi: "坐公交车", pinyin: "zuò gōngjiāochē", arti: "naik bus" },
-        { hanzi: "上班", pinyin: "shàngbān", arti: "pergi kerja" },
-        { hanzi: "运动", pinyin: "yùndòng", arti: "olahraga" },
-        { hanzi: "踢足球", pinyin: "tī zúqiú", arti: "main sepak bola" },
-        { hanzi: "书店", pinyin: "shūdiàn", arti: "toko buku" },
-        { hanzi: "家里", pinyin: "jiāli", arti: "di rumah (dalam rumah)" },
-        { hanzi: "上课", pinyin: "shàngkè", arti: "masuk kelas/belajar" },
-        { hanzi: "听歌", pinyin: "tīng gē", arti: "mendengarkan lagu" },
+        { hanzi: "饭店", pinyin: "fàndiàn", arti: "restoran" },
+        { hanzi: "书", pinyin: "shū", arti: "buku" },
+        { hanzi: "书桌", pinyin: "shūzhuō", arti: "meja belajar" },
+        { hanzi: "名字", pinyin: "míngzi", arti: "nama" },
+        { hanzi: "工作", pinyin: "gōngzuò", arti: "pekerjaan" },
         { hanzi: "鸡蛋", pinyin: "jīdàn", arti: "telur ayam" },
-        { hanzi: "包子", pinyin: "bāozi", arti: "bakpao" },
         { hanzi: "面包", pinyin: "miànbāo", arti: "roti" },
-        { hanzi: "手里", pinyin: "shǒuli", arti: "di tangan" },
-        { hanzi: "椅子上", pinyin: "yǐzi shang", arti: "di(atas) kursi" },
-        { hanzi: "桌子上", pinyin: "zhuōzi shang", arti: "di atas meja" },
-        { hanzi: "打篮球", pinyin: "dǎ lánqiú", arti: "main basket" },
-        { hanzi: "做完工作", pinyin: "zuòwán gōngzuò", arti: "selesai bekerja" },
-        { hanzi: "饭店的菜", pinyin: "fàndiàn de cài", arti: "masakan restoran" },
-        { hanzi: "每", pinyin: "měi", arti: "setiap" },
-        { hanzi: "自己", pinyin: "zìjǐ", arti: "sendiri" },
-        { hanzi: "这么", pinyin: "zhème", arti: "begitu / seperti ini" },
-        { hanzi: "出去", pinyin: "chūqù", arti: "keluar" },
-        { hanzi: "完", pinyin: "wán", arti: "selesai" },
-        { hanzi: "回去", pinyin: "huíqù", arti: "kembali" },
-        { hanzi: "接", pinyin: "jiē", arti: "menjemput" },
-        { hanzi: "看书", pinyin: "kànshū", arti: "membaca buku" },
-        { hanzi: "跳舞", pinyin: "tiàowǔ", arti: "menari" },
-        { hanzi: "小学生", pinyin: "xiǎoxuéshēng", arti: "murid SD" },
-        { hanzi: "女朋友", pinyin: "nǚpéngyou", arti: "teman(pacar) perempuan" },
-        { hanzi: "公司有事", pinyin: "gōngsī yǒu shì", arti: "perusahaan ada urusan" }
+        { hanzi: "苹果", pinyin: "píngguǒ", arti: "apel" },
+        { hanzi: "银行", pinyin: "yínháng", arti: "bank" },
+        { hanzi: "钱", pinyin: "qián", arti: "uang" },
+        { hanzi: "宾馆", pinyin: "bīnguǎn", arti: "hotel" },
+        { hanzi: "前台", pinyin: "qiántái", arti: "meja depan / resepsionis" },
+        { hanzi: "校园", pinyin: "xiàoyuán", arti: "kampus" },
+        { hanzi: "门口", pinyin: "ménkǒu", arti: "pintu masuk" },
+        // Kata Kerja
+        { hanzi: "开车", pinyin: "kāichē", arti: "menyetir / mengendarai" },
+        { hanzi: "问", pinyin: "wèn", arti: "bertanya" },
+        { hanzi: "回答", pinyin: "huídá", arti: "menjawab" },
+        { hanzi: "参观", pinyin: "cānguān", arti: "mengunjungi / tur" },
+        { hanzi: "学习", pinyin: "xuéxí", arti: "belajar" },
+        { hanzi: "看电影", pinyin: "kàn diànyǐng", arti: "menonton film" },
+        { hanzi: "回来", pinyin: "huílái", arti: "kembali (ke sini)" },
+        { hanzi: "过来", pinyin: "guòlái", arti: "datang ke sini" },
+        { hanzi: "出去", pinyin: "chūqù", arti: "pergi keluar" },
+        { hanzi: "回家", pinyin: "huíjiā", arti: "pulang ke rumah" },
+        { hanzi: "准备", pinyin: "zhǔnbèi", arti: "mempersiapkan" },
+        { hanzi: "告诉", pinyin: "gàosu", arti: "memberi tahu" },
+        { hanzi: "介绍", pinyin: "jièshào", arti: "memperkenalkan" },
+        { hanzi: "洗", pinyin: "xǐ", arti: "mencuci" },
+        { hanzi: "洗手", pinyin: "xǐshǒu", arti: "cuci tangan" },
+        { hanzi: "做完", pinyin: "zuòwán", arti: "selesai mengerjakan" },
+        { hanzi: "接", pinyin: "jiē", arti: "menjemput / menerima" },
+        { hanzi: "开", pinyin: "kāi", arti: "membuka / mengemudi" },
+        // Kata Sifat
+        { hanzi: "好", pinyin: "hǎo", arti: "mudah (dalam '好打车' = mudah naik taksi)" },
+        { hanzi: "远", pinyin: "yuǎn", arti: "jauh" },
+        { hanzi: "近", pinyin: "jìn", arti: "dekat" },
+        { hanzi: "漂亮", pinyin: "piàoliang", arti: "cantik / indah" },
+        { hanzi: "好看", pinyin: "hǎokàn", arti: "bagus / enak dipandang" },
+        { hanzi: "不错", pinyin: "búcuò", arti: "lumayan / tidak buruk" },
+        { hanzi: "便宜", pinyin: "piányi", arti: "murah" },
+        { hanzi: "贵", pinyin: "guì", arti: "mahal" },
+        { hanzi: "多", pinyin: "duō", arti: "banyak" },
+        { hanzi: "少", pinyin: "shǎo", arti: "sedikit" },
+        { hanzi: "大", pinyin: "dà", arti: "besar" },
+        { hanzi: "小", pinyin: "xiǎo", arti: "kecil" },
+        { hanzi: "忙", pinyin: "máng", arti: "sibuk" },
+        { hanzi: "累", pinyin: "lèi", arti: "lelah" },
+        // Kata Keterangan & Partikel
+        { hanzi: "还是", pinyin: "háishì", arti: "sebaiknya / lebih baik (dalam pola '还是……吧')" },
+        { hanzi: "吧", pinyin: "ba", arti: "partikel untuk saran / ajakan" },
+        { hanzi: "多 (di belakang angka)", pinyin: "duō", arti: "lebih dari (angka perkiraan)" },
+        { hanzi: "很", pinyin: "hěn", arti: "sangat" },
+        { hanzi: "太", pinyin: "tài", arti: "terlalu / sangat" },
+        { hanzi: "真", pinyin: "zhēn", arti: "sungguh" },
+        { hanzi: "这么", pinyin: "zhème", arti: "begini" },
+        { hanzi: "那么", pinyin: "nàme", arti: "begitu" },
+        { hanzi: "也", pinyin: "yě", arti: "juga" },
+        { hanzi: "都", pinyin: "dōu", arti: "semuanya" },
+        { hanzi: "还", pinyin: "hái", arti: "masih / juga / bahkan" },
+        { hanzi: "就", pinyin: "jiù", arti: "maka / segera" },
+        { hanzi: "不到", pinyin: "bú dào", arti: "kurang dari / belum mencapai" },
+        { hanzi: "已经", pinyin: "yǐjīng", arti: "sudah" },
+        { hanzi: "马上", pinyin: "mǎshàng", arti: "segera" },
+        // Kata Tanya
+        { hanzi: "什么", pinyin: "shénme", arti: "apa" },
+        { hanzi: "哪儿", pinyin: "nǎr", arti: "di mana" },
+        { hanzi: "哪里", pinyin: "nǎlǐ", arti: "di mana" },
+        { hanzi: "谁", pinyin: "shéi", arti: "siapa" },
+        { hanzi: "怎么", pinyin: "zěnme", arti: "bagaimana (cara)" },
+        { hanzi: "怎么样", pinyin: "zěnmeyàng", arti: "bagaimana (keadaan)" },
+        { hanzi: "多少", pinyin: "duōshao", arti: "berapa (jumlah)" },
+        { hanzi: "几", pinyin: "jǐ", arti: "berapa (angka kecil)" },
+        { hanzi: "哪个", pinyin: "nǎge", arti: "yang mana" },
+        { hanzi: "为什么", pinyin: "wèishénme", arti: "mengapa" },
+        // Pola Tata Bahasa & Frasa
+        { hanzi: "还是 + Kalimat + 吧", pinyin: "háishì + kalimat + ba", arti: "\"Sebaiknya ...\" / \"Lebih baik ...\" (pilihan yang lebih baik)" },
+        { hanzi: "好 + Verba", pinyin: "hǎo + V", arti: "\"Mudah untuk ...\"" },
+        { hanzi: "Angka + 多 + 量词", pinyin: "angka + duō + measure", arti: "Lebih dari ... (angka kelipatan 10)" },
+        { hanzi: "Angka + 量词 + 多", pinyin: "angka + measure + duō", arti: "Lebih dari ... (angka bukan kelipatan 10)" },
+        { hanzi: "Verba / Frasa Verba + 的 + Kata Benda", pinyin: "V phrase + de + noun", arti: "Frasa verba sebagai atribut (menerangkan kata benda)" },
+        { hanzi: "不到 + Angka", pinyin: "bú dào + angka", arti: "Kurang dari ..." },
+        { hanzi: "还是打车去吧", pinyin: "háishì dǎchē qù ba", arti: "Lebih baik naik taksi saja." },
+        { hanzi: "这儿好打车吗？", pinyin: "zhèr hǎo dǎchē ma?", arti: "Di sini mudah naik taksi?" },
+        { hanzi: "北京大学很大", pinyin: "Běijīng Dàxué hěn dà", arti: "Universitas Peking sangat besar." },
+        { hanzi: "有四万多名学生", pinyin: "yǒu sì wàn duō míng xuéshēng", arti: "Ada lebih dari 40.000 mahasiswa." },
+        { hanzi: "网上说的", pinyin: "wǎngshang shuō de", arti: "Yang dikatakan di internet." },
+        { hanzi: "三千多名外国学生", pinyin: "sān qiān duō míng wàiguó xuéshēng", arti: "Lebih dari 3.000 mahasiswa asing." },
+        { hanzi: "学校里有家电影院", pinyin: "xuéxiào lǐ yǒu jiā diànyǐngyuàn", arti: "Di kampus ada bioskop." },
+        { hanzi: "还不到二十块钱", pinyin: "hái bú dào èrshí kuài qián", arti: "Masih kurang dari 20 yuan." },
+        { hanzi: "还是别看电影了", pinyin: "háishì bié kàn diànyǐng le", arti: "Lebih baik jangan menonton film." },
+        { hanzi: "有时间还想过来", pinyin: "yǒu shíjiān hái xiǎng guòlái", arti: "Kalau ada waktu masih mau datang lagi." },
+        { hanzi: "去洗洗手吧", pinyin: "qù xǐxi shǒu ba", arti: "Pergi cuci tangan dulu." },
+        { hanzi: "不到五点就做完了", pinyin: "bú dào wǔ diǎn jiù zuòwán le", arti: "Selesai sebelum jam 5." },
+        { hanzi: "你怎么每天都这么晚回来？", pinyin: "nǐ zěnme měi tiān dōu zhème wǎn huílái?", arti: "Kenapa kamu pulang terlambat setiap hari?" }
     ];
+    const TOTAL_VOCAB = vocabulary.length;
 
-    // ========== FLASHCARD DENGAN CHECKLIST ==========
-    let masterFlashcardList = [...vocabulary]; 
-    let currentDisplayList = [];   // list yang sedang ditampilkan (bisa semua atau yang ditandai)
+    // ========== FLASHCARD ==========
+    let currentDisplayList = [...vocabulary];
     let currentFlashIndex = 0;
     let isFlipped = false;
-    // Set untuk menyimpan indeks (dari master) yang ditandai untuk diulang
-    let markedIndices = new Set();   // menyimpan index dari vocabulary (global)
+    let markedIndices = new Set();
 
-    // DOM Flash
-    const cardHanzi = document.getElementById("cardHanzi");
-    const cardPinyin = document.getElementById("cardPinyin");
-    const cardArti = document.getElementById("cardArti");
-    const flashcardCard = document.getElementById("flashcardCard");
-    const prevCardBtn = document.getElementById("prevCardBtn");
-    const nextCardBtn = document.getElementById("nextCardBtn");
-    const shuffleFlashBtn = document.getElementById("shuffleFlashBtn");
-    const markReviewBtn = document.getElementById("markReviewBtn");
-    const showMarkedBtn = document.getElementById("showMarkedBtn");
-    const showAllFlashBtn = document.getElementById("showAllFlashBtn");
-    const flashCounterSpan = document.getElementById("flashCounter");
-    const markedCountBadge = document.getElementById("markedCountBadge");
-
-    function updateMarkedBadge() {
-        markedCountBadge.innerText = `📌 Tertandai: ${markedIndices.size}`;
-    }
-
-    // Tandai / hapus tandai kartu saat ini
-    function toggleMarkCurrent() {
-        if (currentDisplayList.length === 0) return;
-        const currentVocab = currentDisplayList[currentFlashIndex];
-        // cari indeks asli di vocabulary
-        const originalIndex = vocabulary.findIndex(v => v.hanzi === currentVocab.hanzi && v.arti === currentVocab.arti);
-        if (originalIndex !== -1) {
-            if (markedIndices.has(originalIndex)) {
-                markedIndices.delete(originalIndex);
-                alert(`❌ ${currentVocab.hanzi} dihapus dari daftar ulang.`);
-            } else {
-                markedIndices.add(originalIndex);
-                alert(`✅ ${currentVocab.hanzi} ditandai untuk diulang.`);
-            }
-            updateMarkedBadge();
-        } else {
-            alert("Gagal menandai.");
-        }
-    }
-
-    // Tampilkan hanya kartu yang ditandai
-    function showMarkedOnly() {
-        const markedVocabs = [];
-        for (let idx of markedIndices) {
-            markedVocabs.push(vocabulary[idx]);
-        }
-        if (markedVocabs.length === 0) {
-            alert("Belum ada kartu yang ditandai. Klik 'Tandai untuk Diulang' pada kartu yang ingin diulang.");
-            return;
-        }
-        currentDisplayList = [...markedVocabs];
-        if (currentDisplayList.length === 0) currentDisplayList = [...masterFlashcardList];
-        currentFlashIndex = 0;
-        isFlipped = false;
-        renderFlashcardByList();
-    }
-
-    function showAllFlashcards() {
-        currentDisplayList = [...masterFlashcardList];
-        currentFlashIndex = 0;
-        isFlipped = false;
-        renderFlashcardByList();
-    }
-
-    function shuffleFlashcards() {
-        currentDisplayList = shuffleArray([...currentDisplayList]);
-        currentFlashIndex = 0;
-        isFlipped = false;
-        renderFlashcardByList();
-    }
-
-    function renderFlashcardByList() {
-        if (currentDisplayList.length === 0) {
-            cardHanzi.innerText = "Tidak ada kartu";
-            cardPinyin.style.display = "none";
-            cardArti.style.display = "none";
-            flashCounterSpan.innerText = `Kartu 0 / 0`;
-            return;
-        }
+    function updateMarkedBadge() { document.getElementById("markedCountBadge").innerText = `📌 Tertandai: ${markedIndices.size}`; }
+    function shuffleArray(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+    function renderFlashcard() {
+        if (currentDisplayList.length === 0) { document.getElementById("cardHanzi").innerText = "Tidak ada kartu"; return; }
         const item = currentDisplayList[currentFlashIndex];
-        cardHanzi.innerText = item.hanzi;
-        if (!isFlipped) {
-            cardPinyin.style.display = "none";
-            cardArti.style.display = "none";
-        } else {
-            cardPinyin.style.display = "block";
-            cardArti.style.display = "inline-block";
-            cardPinyin.innerText = item.pinyin;
-            cardArti.innerText = item.arti;
+        document.getElementById("cardHanzi").innerText = item.hanzi;
+        const pinyinEl = document.getElementById("cardPinyin");
+        const artiEl = document.getElementById("cardArti");
+        if (!isFlipped) { pinyinEl.style.display = "none"; artiEl.style.display = "none"; }
+        else { pinyinEl.style.display = "block"; artiEl.style.display = "inline-block"; pinyinEl.innerText = item.pinyin; artiEl.innerText = item.arti; }
+        document.getElementById("flashCounter").innerText = `Kartu ${currentFlashIndex+1} / ${currentDisplayList.length}`;
+    }
+    function flipCard() { isFlipped = !isFlipped; renderFlashcard(); }
+    function nextFlash() { if(currentDisplayList.length){ currentFlashIndex = (currentFlashIndex+1)%currentDisplayList.length; isFlipped=false; renderFlashcard(); } }
+    function prevFlash() { if(currentDisplayList.length){ currentFlashIndex = (currentFlashIndex-1+currentDisplayList.length)%currentDisplayList.length; isFlipped=false; renderFlashcard(); } }
+    function toggleMarkCurrent() {
+        if(currentDisplayList.length===0) return;
+        const currentVoc = currentDisplayList[currentFlashIndex];
+        const origIdx = vocabulary.findIndex(v => v.hanzi === currentVoc.hanzi && v.pinyin === currentVoc.pinyin);
+        if(origIdx !== -1){
+            if(markedIndices.has(origIdx)) markedIndices.delete(origIdx);
+            else markedIndices.add(origIdx);
+            updateMarkedBadge();
+            alert(markedIndices.has(origIdx) ? `✅ ${currentVoc.hanzi} ditandai ulang` : `❌ ${currentVoc.hanzi} dihapus dari tandai`);
         }
-        flashCounterSpan.innerText = `Kartu ${currentFlashIndex+1} / ${currentDisplayList.length}`;
     }
-
-    function flipCardHandler() {
-        isFlipped = !isFlipped;
-        renderFlashcardByList();
+    function showMarkedOnly() {
+        const markedVoc = [];
+        for(let idx of markedIndices) markedVoc.push(vocabulary[idx]);
+        if(markedVoc.length===0){ alert("Belum ada kartu ditandai. Klik ✅ Tandai Ulang pada kartu."); return; }
+        currentDisplayList = [...markedVoc];
+        currentFlashIndex = 0; isFlipped=false; renderFlashcard();
     }
+    function showAllFlash() { currentDisplayList = [...vocabulary]; currentFlashIndex=0; isFlipped=false; renderFlashcard(); }
+    function shuffleFlash() { currentDisplayList = shuffleArray([...currentDisplayList]); currentFlashIndex=0; isFlipped=false; renderFlashcard(); }
 
-    function nextFlash() {
-        if (currentDisplayList.length === 0) return;
-        currentFlashIndex = (currentFlashIndex + 1) % currentDisplayList.length;
-        isFlipped = false;
-        renderFlashcardByList();
-    }
+    // ========== KUIS ==========
+    let audioCtx = null;
+    function initAudio() { if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); return audioCtx; }
+    function playTone(freq, dur, vol=0.2) { let ctx=initAudio(); if(ctx.state==='suspended') ctx.resume().then(()=>_play(ctx,freq,dur,vol)).catch(e=>{}); else _play(ctx,freq,dur,vol); }
+    function _play(ctx,freq,dur,vol){ let osc=ctx.createOscillator(), gain=ctx.createGain(); osc.connect(gain); gain.connect(ctx.destination); osc.frequency.value=freq; gain.gain.value=vol; osc.start(); gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime+dur); osc.stop(ctx.currentTime+dur); }
+    function playCorrect() { playTone(880,0.12,0.25); setTimeout(()=>playTone(1100,0.2,0.25),130); setTimeout(()=>playTone(1320,0.25,0.2),280); }
+    function playWrong() { let ctx=initAudio(); if(ctx.state==='suspended') ctx.resume().then(()=>_playWrong(ctx)).catch(e=>{}); else _playWrong(ctx); }
+    function _playWrong(ctx){ let osc=ctx.createOscillator(), gain=ctx.createGain(); osc.connect(gain); gain.connect(ctx.destination); osc.frequency.value=220; gain.gain.value=0.35; osc.start(); let lfo=ctx.createOscillator(), lfoG=ctx.createGain(); lfo.connect(lfoG); lfoG.connect(gain.gain); lfo.frequency.value=18; lfoG.gain.value=0.25; lfo.start(); gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime+0.5); osc.stop(ctx.currentTime+0.5); lfo.stop(ctx.currentTime+0.5); }
 
-    function prevFlash() {
-        if (currentDisplayList.length === 0) return;
-        currentFlashIndex = (currentFlashIndex - 1 + currentDisplayList.length) % currentDisplayList.length;
-        isFlipped = false;
-        renderFlashcardByList();
-    }
-
-    function shuffleArray(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-    }
-
-    // ========== KUIS DENGAN PENGULANGAN SOAL SALAH ==========
-    let originalQuizOrder = [];      // urutan indeks acak awal
-    let currentQuizIndex = 0;
+    let quizQuestionsOrder = [];
+    let currentQIndex = 0;
     let quizScore = 0;
     let quizAnswered = false;
-    let currentQuestionObj = null;
-    let currentCorrectHanzi = "";
-    let currentOptionsList = [];
-    let wrongQuestionsIndices = [];   // menyimpan indeks (dari originalQuizOrder) yang salah
-    let quizMode = "normal";          // 'normal' atau 'repeat'
-    let repeatList = [];              // daftar indeks (dari vocabulary) untuk diulang
-    
+    let timerInterval = null;
+    let timeLeft = 20;
+    let currentQuestionVocab = null;
+    let currentOptions = [];
+    let wrongIndices = [];
+    let quizMode = "normal";
+    let repeatList = [];
+
     const quizScoreSpan = document.getElementById("quizScore");
-    const totalQuizCountSpan = document.getElementById("totalQuizCount");
+    const totalQuizSpan = document.getElementById("totalQuizCount");
     const questionArtiSpan = document.getElementById("questionArti");
-    const quizOptionsGrid = document.getElementById("quizOptionsGrid");
-    const quizFeedbackDiv = document.getElementById("quizFeedback");
+    const optionsGrid = document.getElementById("quizOptionsGrid");
+    const quizFeedback = document.getElementById("quizFeedback");
     const nextQuizBtn = document.getElementById("nextQuizBtn");
     const resetQuizBtn = document.getElementById("resetQuizBtn");
     const repeatWrongBtn = document.getElementById("repeatWrongBtn");
+    const timeProgress = document.getElementById("timeProgress");
+    const timerDisplaySpan = document.getElementById("timerDisplay");
 
-    function updateQuizScoreUI() {
-        quizScoreSpan.innerText = quizScore;
-        totalQuizCountSpan.innerText = (quizMode === "repeat" ? repeatList.length : vocabulary.length);
+    function stopTimer() { if(timerInterval) clearInterval(timerInterval); timerInterval=null; }
+    function startTimer() {
+        timeLeft=20; updateTimerUI();
+        timerInterval = setInterval(()=>{
+            if(quizAnswered) return;
+            if(timeLeft<=1){ if(!quizAnswered) finishAnswer(false, true); }
+            else { timeLeft--; updateTimerUI(); }
+        },1000);
+    }
+    function updateTimerUI() {
+        timerDisplaySpan.innerText = `${timeLeft} detik`;
+        let percent = (timeLeft/20)*100;
+        timeProgress.style.width=`${percent}%`;
+        if(timeLeft<=5) timeProgress.classList.add("time-warning");
+        else timeProgress.classList.remove("time-warning");
     }
 
-    function generateQuizOptions(correctHanzi, excludeIndex) {
-        let otherHanzi = vocabulary.filter((_, i) => i !== excludeIndex).map(v => v.hanzi);
-        otherHanzi = shuffleArray([...otherHanzi]);
+    function generateOptions(correctHanzi, correctIdx) {
+        let others = vocabulary.filter((_,i)=> i!==correctIdx).map(v=>v.hanzi);
+        others = shuffleArray([...others]);
         let opts = [correctHanzi];
-        for (let i = 0; i < Math.min(3, otherHanzi.length); i++) opts.push(otherHanzi[i]);
+        for(let i=0; i<Math.min(3, others.length); i++) opts.push(others[i]);
         return shuffleArray(opts);
     }
-
-    function loadQuizQuestion() {
-        if (quizMode === "normal") {
-            if (currentQuizIndex >= originalQuizOrder.length) {
-                finishQuiz();
-                return;
-            }
-            const vocabIdx = originalQuizOrder[currentQuizIndex];
-            currentQuestionObj = vocabulary[vocabIdx];
-            currentCorrectHanzi = currentQuestionObj.hanzi;
-            questionArtiSpan.innerText = currentQuestionObj.arti;
-            currentOptionsList = generateQuizOptions(currentCorrectHanzi, vocabIdx);
-        } else {
-            // mode repeat: repeatList berisi indeks vocabulary asli
-            if (currentQuizIndex >= repeatList.length) {
-                finishQuiz();
-                return;
-            }
-            const vocabIdx = repeatList[currentQuizIndex];
-            currentQuestionObj = vocabulary[vocabIdx];
-            currentCorrectHanzi = currentQuestionObj.hanzi;
-            questionArtiSpan.innerText = currentQuestionObj.arti;
-            currentOptionsList = generateQuizOptions(currentCorrectHanzi, vocabIdx);
-        }
-        renderQuizButtons();
-        quizAnswered = false;
-        quizFeedbackDiv.innerHTML = "🌸 Pilih Hanzi yang tepat! 🌸";
-        quizFeedbackDiv.style.background = "#f1f5f9";
-        quizFeedbackDiv.style.color = "#1e293b";
-        enableQuizOptions(true);
-    }
-
-    function renderQuizButtons() {
-        quizOptionsGrid.innerHTML = "";
-        currentOptionsList.forEach(opt => {
-            const btn = document.createElement("button");
+    function renderQuizOptions() {
+        optionsGrid.innerHTML = "";
+        currentOptions.forEach(opt => {
+            let btn = document.createElement("button");
             btn.className = "quiz-option";
             btn.innerText = opt;
             btn.style.fontFamily = "'Simsun', '宋体', serif";
-            btn.addEventListener("click", () => checkQuizAnswer(opt));
-            quizOptionsGrid.appendChild(btn);
+            btn.addEventListener("click", () => checkAnswer(opt));
+            optionsGrid.appendChild(btn);
         });
     }
-
-    function enableQuizOptions(enable) {
-        const btns = document.querySelectorAll(".quiz-option");
-        btns.forEach(btn => {
-            if (enable) {
-                btn.disabled = false;
-                btn.classList.remove("disabled-opt");
-            } else {
-                btn.disabled = true;
-                btn.classList.add("disabled-opt");
-            }
+    function enableOptions(enable) {
+        document.querySelectorAll(".quiz-option").forEach(btn => {
+            if(enable) { btn.disabled=false; btn.classList.remove("disabled-opt"); }
+            else { btn.disabled=true; btn.classList.add("disabled-opt"); }
         });
     }
-
-    function checkQuizAnswer(selected) {
-        if (quizAnswered) return;
-        quizAnswered = true;
-        const isCorrect = (selected === currentCorrectHanzi);
-        if (isCorrect) {
-            quizScore++;
-            updateQuizScoreUI();
-            quizFeedbackDiv.innerHTML = "✅ BENAR! +1 poin ✅";
-            quizFeedbackDiv.style.background = "#d1fae5";
-            quizFeedbackDiv.style.color = "#065f46";
-        } else {
-            quizFeedbackDiv.innerHTML = `❌ SALAH! Hanzi yang benar: "${currentCorrectHanzi}" ❌`;
-            quizFeedbackDiv.style.background = "#fee2e2";
-            quizFeedbackDiv.style.color = "#991b1b";
-            // simpan soal yang salah (dalam mode normal, simpan indeks asli dari originalQuizOrder)
-            if (quizMode === "normal") {
-                const wrongVocabIdx = originalQuizOrder[currentQuizIndex];
-                if (!wrongQuestionsIndices.includes(wrongVocabIdx)) {
-                    wrongQuestionsIndices.push(wrongVocabIdx);
-                }
-            } else {
-                // mode repeat: simpan juga untuk pengulangan berikutnya? Bisa juga, tapi kita biarkan tombol repeat ulang dari awal lagi.
-                // Agar sederhana, saat mode repeat, jika salah tetap tidak menambahkan lagi (karena akan diulang nanti jika user tekan repeat lagi)
-                // Biarkan saja.
-            }
+    function finishAnswer(isCorrect, isTimeout=false) {
+        if(quizAnswered) return;
+        quizAnswered=true;
+        stopTimer();
+        if(isCorrect) { playCorrect(); quizScore++; updateQuizUI(); quizFeedback.innerHTML="✅ BENAR! +1 poin ✅"; quizFeedback.style.background="#d1fae5"; }
+        else { playWrong(); quizFeedback.innerHTML=`❌ SALAH! Hanzi benar: "${currentQuestionVocab.hanzi}" ❌`; quizFeedback.style.background="#fee2e2";
+            if(quizMode==="normal" && !isTimeout) { let wrongIdx = quizQuestionsOrder[currentQIndex]; if(!wrongIndices.includes(wrongIdx)) wrongIndices.push(wrongIdx); } }
+        enableOptions(false);
+    }
+    function checkAnswer(selected) { if(quizAnswered) return; let isCorrect = (selected === currentQuestionVocab.hanzi); finishAnswer(isCorrect, false); }
+    function updateQuizUI() { quizScoreSpan.innerText = quizScore; totalQuizSpan.innerText = (quizMode==="repeat"? repeatList.length : TOTAL_VOCAB); }
+    function loadQuizQuestion() {
+        if(quizMode==="normal" && currentQIndex >= quizQuestionsOrder.length) { endQuiz(); return; }
+        if(quizMode==="repeat" && currentQIndex >= repeatList.length) { endQuiz(); return; }
+        let vocabIdx = (quizMode==="normal") ? quizQuestionsOrder[currentQIndex] : repeatList[currentQIndex];
+        currentQuestionVocab = vocabulary[vocabIdx];
+        questionArtiSpan.innerText = currentQuestionVocab.arti;
+        currentOptions = generateOptions(currentQuestionVocab.hanzi, vocabIdx);
+        renderQuizOptions();
+        quizAnswered=false;
+        enableOptions(true);
+        quizFeedback.innerHTML = "🌸 Pilih Hanzi yang tepat! 🌸";
+        quizFeedback.style.background="#f1f5f9";
+        stopTimer(); startTimer();
+    }
+    function nextQuiz() {
+        if(!quizAnswered && currentQIndex < (quizMode==="normal"?quizQuestionsOrder.length:repeatList.length)) {
+            quizFeedback.innerHTML = "⚠️ Jawab dulu sebelum lanjut! ⚠️"; quizFeedback.style.background="#fef3c7";
+            setTimeout(()=>{ if(!quizAnswered) quizFeedback.style.background="#f1f5f9"; },800);
+            return;
         }
-        enableQuizOptions(false);
+        currentQIndex++;
+        if((quizMode==="normal" && currentQIndex<quizQuestionsOrder.length) || (quizMode==="repeat" && currentQIndex<repeatList.length))
+            loadQuizQuestion();
+        else endQuiz();
     }
-
-    function finishQuiz() {
-        enableQuizOptions(false);
-        if (quizMode === "normal") {
-            if (wrongQuestionsIndices.length > 0) {
-                quizFeedbackDiv.innerHTML = `🎉 Kuis selesai! Skor: ${quizScore}/${originalQuizOrder.length}. Kamu salah ${wrongQuestionsIndices.length} soal. Tekan "Ulangi Soal Salah" untuk memperbaiki. 🎉`;
-            } else {
-                quizFeedbackDiv.innerHTML = `🎉 SEMPURNA! Semua jawaban benar. Skor: ${quizScore}/${originalQuizOrder.length} 🎉`;
-            }
+    function endQuiz() {
+        stopTimer(); enableOptions(false);
+        if(quizMode==="normal"){
+            if(wrongIndices.length>0) quizFeedback.innerHTML = `🎉 Selesai! Skor: ${quizScore}/${quizQuestionsOrder.length}. Kamu salah ${wrongIndices.length} soal. Tekan "Ulangi Soal Salah" untuk perbaiki. 🎉`;
+            else quizFeedback.innerHTML = `🎉 SEMPURNA! Skor: ${quizScore}/${quizQuestionsOrder.length} 🎉`;
         } else {
-            quizFeedbackDiv.innerHTML = `🔁 Latihan ulang selesai! Skor: ${quizScore}/${repeatList.length}. Tekan "Mulai Baru" untuk sesi baru. 🔁`;
+            quizFeedback.innerHTML = `🔁 Latihan ulang selesai! Skor: ${quizScore}/${repeatList.length}. Tekan "Mulai Baru" untuk sesi baru. 🔁`;
         }
         questionArtiSpan.innerText = "✨ Kuis Selesai ✨";
         nextQuizBtn.disabled = true;
     }
-
-    function nextQuiz() {
-        if (nextQuizBtn.disabled) return;
-        if (!quizAnswered) {
-            quizFeedbackDiv.innerHTML = "⚠️ Jawab dulu pertanyaan ini! ⚠️";
-            quizFeedbackDiv.style.background = "#fef3c7";
-            setTimeout(() => { if (!quizAnswered) quizFeedbackDiv.style.background = "#f1f5f9"; }, 800);
-            return;
-        }
-        currentQuizIndex++;
-        if ((quizMode === "normal" && currentQuizIndex < originalQuizOrder.length) ||
-            (quizMode === "repeat" && currentQuizIndex < repeatList.length)) {
-            loadQuizQuestion();
-        } else {
-            finishQuiz();
-        }
+    function resetQuiz() {
+        stopTimer(); quizMode="normal"; wrongIndices=[];
+        let indices = Array.from({length:TOTAL_VOCAB}, (_,i)=>i);
+        quizQuestionsOrder = shuffleArray([...indices]);
+        currentQIndex=0; quizScore=0; quizAnswered=false;
+        updateQuizUI(); loadQuizQuestion(); nextQuizBtn.disabled=false;
+    }
+    function repeatWrong() {
+        if(wrongIndices.length===0){ quizFeedback.innerHTML="✨ Tidak ada soal salah! Kamu hebat ✨"; return; }
+        stopTimer(); quizMode="repeat"; repeatList = [...wrongIndices];
+        currentQIndex=0; quizScore=0; quizAnswered=false;
+        updateQuizUI(); loadQuizQuestion(); nextQuizBtn.disabled=false;
+        quizFeedback.innerHTML = "🔁 Mode Ulang Soal Salah. Kerjakan dengan baik! 🔁";
     }
 
-    function resetQuiz(keepWrongList = false) {
-        if (!keepWrongList) wrongQuestionsIndices = [];
-        quizMode = "normal";
-        const indices = Array.from({ length: vocabulary.length }, (_, i) => i);
-        originalQuizOrder = shuffleArray([...indices]);
-        currentQuizIndex = 0;
-        quizScore = 0;
-        quizAnswered = false;
-        updateQuizScoreUI();
-        loadQuizQuestion();
-        nextQuizBtn.disabled = false;
-        totalQuizCountSpan.innerText = vocabulary.length;
-    }
+    // ========== EVENT LISTENERS ==========
+    document.getElementById("flashcardCard").addEventListener("click", flipCard);
+    document.getElementById("prevCardBtn").addEventListener("click", prevFlash);
+    document.getElementById("nextCardBtn").addEventListener("click", nextFlash);
+    document.getElementById("shuffleFlashBtn").addEventListener("click", shuffleFlash);
+    document.getElementById("markReviewBtn").addEventListener("click", toggleMarkCurrent);
+    document.getElementById("showMarkedBtn").addEventListener("click", showMarkedOnly);
+    document.getElementById("showAllFlashBtn").addEventListener("click", showAllFlash);
+    nextQuizBtn.addEventListener("click", nextQuiz);
+    resetQuizBtn.addEventListener("click", resetQuiz);
+    repeatWrongBtn.addEventListener("click", repeatWrong);
 
-    function repeatWrongQuestions() {
-        if (wrongQuestionsIndices.length === 0) {
-            quizFeedbackDiv.innerHTML = "✨ Tidak ada soal yang salah! Kamu hebat. ✨";
-            return;
-        }
-        quizMode = "repeat";
-        repeatList = [...wrongQuestionsIndices];
-        currentQuizIndex = 0;
-        quizScore = 0;
-        quizAnswered = false;
-        updateQuizScoreUI();
-        loadQuizQuestion();
-        nextQuizBtn.disabled = false;
-        totalQuizCountSpan.innerText = repeatList.length;
-        quizFeedbackDiv.innerHTML = "🔁 Mode Ulang Soal Salah. Kerjakan dengan baik! 🔁";
-    }
-
-    // ========== INISIALISASI & EVENT ==========
-    function init() {
-        // Flashcard
-        currentDisplayList = [...masterFlashcardList];
-        currentFlashIndex = 0;
-        isFlipped = false;
-        renderFlashcardByList();
-        updateMarkedBadge();
-        
-        flashcardCard.addEventListener("click", flipCardHandler);
-        prevCardBtn.addEventListener("click", prevFlash);
-        nextCardBtn.addEventListener("click", nextFlash);
-        shuffleFlashBtn.addEventListener("click", shuffleFlashcards);
-        markReviewBtn.addEventListener("click", toggleMarkCurrent);
-        showMarkedBtn.addEventListener("click", showMarkedOnly);
-        showAllFlashBtn.addEventListener("click", showAllFlashcards);
-        
-        // Kuis
-        resetQuiz(false);
-        repeatWrongBtn.addEventListener("click", repeatWrongQuestions);
-        resetQuizBtn.addEventListener("click", () => resetQuiz(false));
-        nextQuizBtn.addEventListener("click", nextQuiz);
-        
-        // Tab switching
-        document.querySelectorAll(".tab-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const tab = btn.getAttribute("data-tab");
-                document.getElementById("flashcardTab").classList.toggle("active", tab === "flashcard");
-                document.getElementById("quizTab").classList.toggle("active", tab === "quiz");
-                document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
-            });
+    // Tab switching
+    document.querySelectorAll(".tab-btn").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+            let tab = btn.getAttribute("data-tab");
+            document.getElementById("flashcardTab").classList.toggle("active", tab==="flashcard");
+            document.getElementById("quizTab").classList.toggle("active", tab==="quiz");
+            document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+            btn.classList.add("active");
         });
+    });
+
+    // Inisialisasi
+    function init() {
+        showAllFlash();
+        updateMarkedBadge();
+        resetQuiz();
+        document.body.addEventListener("click", ()=>{
+            if(audioCtx && audioCtx.state==='suspended') audioCtx.resume();
+        }, {once:true});
     }
     init();
 </script>
